@@ -1,0 +1,23 @@
+name: Integration Tests (proof of concept)
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build the docker-compose stack
+        run: docker-compose build
+      - name: Run the docker-compose stack
+        run: docker-compose up -d
+      - name: Sleep for 60 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '60s'
+      - name: Status
+        run: docker-compose ps
+      - name: Log of web build
+        run: docker-compose logs web
+      - name: Check web ui is served
+        run: curl localhost:3000
