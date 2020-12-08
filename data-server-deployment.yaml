@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: data-server
+  name: data-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: data-server
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: data-server
+    spec:
+      containers:
+        - command:
+            - ./run.sh
+          env:
+            - name: DATA_SERVER_HOST
+              value: localhost:8081
+            - name: DSTU2_HOST
+              value: fhir-data-dstu2:9002
+            - name: DSTU3_HOST
+              value: fhir-data-dstu3:9007
+            - name: PORT
+              value: "8081"
+            - name: UI_HOST
+              value: localhost:3000
+          image: data-server
+          livenessProbe:
+            exec:
+              command:
+                - curl
+                - -f
+                - http://localhost:8081/data/manifest
+          name: data-server
+          ports:
+            - containerPort: 8081
+          resources: {}
+          workingDir: /discovery-data-server
+      restartPolicy: Always
+status: {}
