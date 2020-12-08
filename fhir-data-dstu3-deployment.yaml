@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: fhir-data-dstu3
+  name: fhir-data-dstu3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: fhir-data-dstu3
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: fhir-data-dstu3
+    spec:
+      containers:
+        - command:
+            - ./run
+          image: fhir-data-dstu3
+          livenessProbe:
+            exec:
+              command:
+                - curl
+                - -f
+                - http://localhost:9007
+          name: fhir-data-dstu3
+          ports:
+            - containerPort: 9007
+          resources: {}
+          workingDir: /discovery-fhir-data/DSTU3
+      restartPolicy: Always
+status: {}

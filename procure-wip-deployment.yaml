@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: procure-wip
+  name: procure-wip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: procure-wip
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: procure-wip
+    spec:
+      containers:
+        - command:
+            - ./run.sh
+          env:
+            - name: BROWSER
+              value: none
+            - name: DATA_HOST
+              value: localhost:8081
+            - name: PORT
+              value: "4000"
+          image: procure-wip
+          livenessProbe:
+            exec:
+              command:
+                - curl
+                - -f
+                - http://localhost:4000
+          name: procure-wip
+          ports:
+            - containerPort: 4000
+          resources: {}
+          stdin: true
+          workingDir: /procure-wip
+      restartPolicy: Always
+status: {}
