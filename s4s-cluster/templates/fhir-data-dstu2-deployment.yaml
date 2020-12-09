@@ -37,6 +37,7 @@ spec:
           name: fhir-data-dstu2
           ports:
             - containerPort: 9002
+              protocol: TCP
           resources: {}
           workingDir: /discovery-fhir-data/DSTU2
       restartPolicy: Always

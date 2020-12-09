@@ -11,10 +11,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - name: "9002"
+    - name: http
       port: 9002
       targetPort: 9002
+      protocol: TCP
   selector:
     io.kompose.service: fhir-data-dstu2
-status:
-  loadBalancer: {}
