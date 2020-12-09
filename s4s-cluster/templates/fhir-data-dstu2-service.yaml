@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: fhir-data-dstu2
   name: fhir-data-dstu2
 spec:
+  type: LoadBalancer
   ports:
     - name: "9002"
       port: 9002
