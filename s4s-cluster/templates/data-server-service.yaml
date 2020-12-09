@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: data-server
   name: data-server
 spec:
+  type: LoadBalancer
   ports:
     - name: "8081"
       port: 8081
