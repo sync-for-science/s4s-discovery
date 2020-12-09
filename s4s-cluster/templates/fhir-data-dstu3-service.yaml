@@ -11,9 +11,10 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - name: "9007"
+    - name: "http"
       port: 9007
       targetPort: 9007
+      protocol: TCP
   selector:
     io.kompose.service: fhir-data-dstu3
 status:
