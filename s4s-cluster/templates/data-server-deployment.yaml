@@ -37,7 +37,8 @@ spec:
               value: "8081"
             - name: UI_HOST
               value: localhost:3000
-          image: data-server
+          image: s4s-discovery_data-server:latest
+          imagePullPolicy: IfNotPresent
           livenessProbe:
             exec:
               command:

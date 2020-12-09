@@ -33,7 +33,8 @@ spec:
               value: localhost:8081
             - name: PORT
               value: "4000"
-          image: procure-wip
+          image: s4s-discovery_procure-wip:latest
+          imagePullPolicy: IfNotPresent
           livenessProbe:
             exec:
               command:

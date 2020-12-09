@@ -30,7 +30,8 @@ spec:
           env:
             - name: DATA_HOST
               value: localhost:8081
-          image: web
+          image: s4s-discovery_web:latest
+          imagePullPolicy: IfNotPresent
           livenessProbe:
             exec:
               command:
