@@ -33,6 +33,7 @@ spec:
           image: s4s-discovery_web:latest
           imagePullPolicy: IfNotPresent
           livenessProbe:
+            initialDelaySeconds: 60
             exec:
               command:
                 - curl
@@ -42,13 +43,16 @@ spec:
           ports:
             - containerPort: 3000
           resources: {}
-          volumeMounts:
-            - mountPath: /discovery-web-ui/src
-              name: web-claim0
+#          volumeMounts:
+#            - mountPath: /discovery-web-ui/src
+#              name: web-claim0
           workingDir: /discovery-web-ui
       restartPolicy: Always
-      volumes:
-        - name: web-claim0
-          persistentVolumeClaim:
-            claimName: web-claim0
+#      volumes:
+#        - name: web-claim0
+#          persistentVolumeClaim:
+#            claimName: web-claim0
+#          hostPath:
+#            path: "$(pwd)/discovery-web-ui/src" # absolute path from the host
+#            type: Directory
 status: {}
