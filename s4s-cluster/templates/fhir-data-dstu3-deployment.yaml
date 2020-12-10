@@ -26,8 +26,8 @@ spec:
       containers:
         - command:
             - ./run
-          image: s4s-discovery_fhir-data-dstu3:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.image.fhirDataDstu3.repository }}
+          imagePullPolicy: {{ .Values.image.fhirDataDstu3.pullPolicy }}
           livenessProbe:
             exec:
               command:
