@@ -30,8 +30,8 @@ spec:
           env:
             - name: DATA_HOST
               value: localhost:8081
-          image: s4s-discovery_web:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.image.web.repository }}
+          imagePullPolicy: {{ .Values.image.web.pullPolicy }}
           livenessProbe:
             initialDelaySeconds: 60
             exec:

@@ -37,8 +37,8 @@ spec:
               value: "8081"
             - name: UI_HOST
               value: localhost:3000
-          image: s4s-discovery_data-server:latest
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.image.dataServer.repository }}
+          imagePullPolicy: {{ .Values.image.dataServer.pullPolicy }}
           livenessProbe:
             exec:
               command:
