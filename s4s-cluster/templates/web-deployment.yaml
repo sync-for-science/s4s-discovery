@@ -29,7 +29,7 @@ spec:
             - ./run.sh
           env:
             - name: DATA_HOST
-              value: localhost:8081
+              value: aaccdf7459ce842799e4615ad4920589-278800391.us-east-2.elb.amazonaws.com:8081
           image: {{ .Values.image.web.repository }}
           imagePullPolicy: {{ .Values.image.web.pullPolicy }}
           livenessProbe:
@@ -38,7 +38,7 @@ spec:
               command:
                 - curl
                 - -f
-                - http://localhost:3000
+                - http://a249c63fbfb6648f28885723df6d7e85-1760505354.us-east-2.elb.amazonaws.com:3000
           name: web
           ports:
             - containerPort: 3000

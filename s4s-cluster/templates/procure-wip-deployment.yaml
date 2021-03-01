@@ -30,7 +30,7 @@ spec:
             - name: BROWSER
               value: none
             - name: DATA_HOST
-              value: localhost:8081
+              value: aaccdf7459ce842799e4615ad4920589-278800391.us-east-2.elb.amazonaws.com:8081
             - name: PORT
               value: "4000"
           image: {{ .Values.image.procureWip.repository }}
@@ -40,7 +40,7 @@ spec:
               command:
                 - curl
                 - -f
-                - http://localhost:4000
+                - http://a4019ace75264497390778d98b1d11fb-256980331.us-east-2.elb.amazonaws.com:4000
           name: procure-wip
           ports:
             - containerPort: 4000

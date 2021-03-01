@@ -33,7 +33,7 @@ spec:
               command:
                 - curl
                 - -f
-                - http://localhost:9007
+                - http://ab43880e82eaa48c4be0375f46146740-179423386.us-east-2.elb.amazonaws.com:9007
           name: fhir-data-dstu3
           ports:
             - containerPort: 9007

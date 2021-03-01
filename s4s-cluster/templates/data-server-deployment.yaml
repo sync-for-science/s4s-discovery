@@ -28,15 +28,15 @@ spec:
             - ./run.sh
           env:
             - name: DATA_SERVER_HOST
-              value: localhost:8081
+              value: aaccdf7459ce842799e4615ad4920589-278800391.us-east-2.elb.amazonaws.com:8081
             - name: DSTU2_HOST
-              value: fhir-data-dstu2:9002
+              value: abfa04c7dd6d043bbac4b501bbf6f636-613908026.us-east-2.elb.amazonaws.com:9002
             - name: DSTU3_HOST
-              value: fhir-data-dstu3:9007
+              value: ab43880e82eaa48c4be0375f46146740-179423386.us-east-2.elb.amazonaws.com:9007
             - name: PORT
               value: "8081"
             - name: UI_HOST
-              value: localhost:3000
+              value: a249c63fbfb6648f28885723df6d7e85-1760505354.us-east-2.elb.amazonaws.com:3000
           image: {{ .Values.image.dataServer.repository }}
           imagePullPolicy: {{ .Values.image.dataServer.pullPolicy }}
           livenessProbe:
@@ -44,7 +44,7 @@ spec:
               command:
                 - curl
                 - -f
-                - http://localhost:8081/data/manifest
+                - http://aaccdf7459ce842799e4615ad4920589-278800391.us-east-2.elb.amazonaws.com:8081/data/manifest
           name: data-server
           ports:
             - containerPort: 8081
