@@ -10,19 +10,19 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
   dataServer:
-    repository: 272207098939.dkr.ecr.us-east-1.amazonaws.com/s4s-discovery_data-server:latest
+    repository: 272207098939.dkr.ecr.us-east-2.amazonaws.com/s4s-discovery/data-server:latest
     pullPolicy: Always
   fhirDataDstu2:
-    repository: 272207098939.dkr.ecr.us-east-1.amazonaws.com/s4s-discovery_fhir-data-dstu2:latest
+    repository: 272207098939.dkr.ecr.us-east-2.amazonaws.com/s4s-discovery/fhir-data-dstu2:latest
     pullPolicy: Always
   fhirDataDstu3:
-    repository: 272207098939.dkr.ecr.us-east-1.amazonaws.com/s4s-discovery_fhir-data-dstu3:latest
+    repository: 272207098939.dkr.ecr.us-east-2.amazonaws.com/s4s-discovery/fhir-data-dstu3:latest
     pullPolicy: Always
   procureWip:
-    repository: 272207098939.dkr.ecr.us-east-1.amazonaws.com/s4s-discovery_procure-wip:latest
+    repository: 272207098939.dkr.ecr.us-east-2.amazonaws.com/s4s-discovery/procure-wip:latest
     pullPolicy: Always
   web:
-    repository: 272207098939.dkr.ecr.us-east-1.amazonaws.com/s4s-discovery_web:latest
+    repository: 272207098939.dkr.ecr.us-east-2.amazonaws.com/s4s-discovery/web:latest
     pullPolicy: Always
 
 imagePullSecrets: []
