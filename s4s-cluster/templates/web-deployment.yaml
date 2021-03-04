@@ -27,13 +27,6 @@ spec:
       containers:
         - image: {{ .Values.image.web.repository }}
           imagePullPolicy: {{ .Values.image.web.pullPolicy }}
-          livenessProbe:
-            initialDelaySeconds: 60
-            exec:
-              command:
-                - curl
-                - -f
-                - http://a249c63fbfb6648f28885723df6d7e85-1760505354.us-east-2.elb.amazonaws.com
           name: web
           resources: {}
 #          volumeMounts:
