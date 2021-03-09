@@ -36,7 +36,7 @@ spec:
             - name: PORT
               value: "8081"
             - name: UI_HOST
-              value: a249c63fbfb6648f28885723df6d7e85-1760505354.us-east-2.elb.amazonaws.com:3000
+              value: a249c63fbfb6648f28885723df6d7e85-1760505354.us-east-2.elb.amazonaws.com
           image: {{ .Values.image.dataServer.repository }}
           imagePullPolicy: {{ .Values.image.dataServer.pullPolicy }}
           livenessProbe:
