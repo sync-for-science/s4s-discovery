@@ -1,7 +1,9 @@
 version: "3"
 services:
   web:
-    build: ./discovery-web-ui
+    build: 
+      context: ./discovery-web-ui
+      target: builder_base
     working_dir: /discovery-web-ui
     entrypoint: ["./run.sh"]
     environment:
